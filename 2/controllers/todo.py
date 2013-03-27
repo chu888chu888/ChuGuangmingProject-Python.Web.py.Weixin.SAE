@@ -2,11 +2,19 @@
 # coding: utf-8
 
 import hashlib
-from lxml import etree
 
 import web
-
+from libs import userinfo
 from config.settings import config
+import datetime
+import time
+from config import settings
+
+
+class LogTableOperation:
+    @staticmethod
+    def InsertLog(log, datetime):
+        settings.db.insert('logs', log=log, datetime=datetime)
 
 
 class weixin:
@@ -43,39 +51,25 @@ class weixin:
 
 
     def POST(self):
-        #有以下几种类型
-        #文本 值为：text
-        #图片 值为：image
-        #地理信息 值为：location
-        #连接信息 值为：link
         #接收微信的请求内容
         data = web.data()
-        #解析XML内容
-        root = etree.fromstring(data)
-        child = list(root)
-        recv = {}
-        for i in child:
-            recv[i.tag] = i.text
-
-        #print data
-        #print recv
-
+        #解析XML内容,返回列表
+        recv = userinfo.User.returnuserinfo(data)
         #测试demo 所以接收到啥内容，就原样返回
         #文本模板
         if recv['MsgType'] == 'text':
-            textTpl = """<xml>
-                <ToUserName><![CDATA[%s]]></ToUserName>
-                <FromUserName><![CDATA[%s]]></FromUserName>
-                <CreateTime>%s</CreateTime>
-                <MsgType><![CDATA[%s]]></MsgType>
-                <Content><![CDATA[%s]]></Content>
-                <FuncFlag>0</FuncFlag>
-                </xml>"""
-            echostr = textTpl % (
-                recv['FromUserName'], recv['ToUserName'], recv['CreateTime'], recv['MsgType'], recv['Content'])
+            #格式化文本消息
+            echostr = userinfo.UserMessage.returntxtMessage(recv['FromUserName'], recv['ToUserName'],
+                                                            recv['CreateTime'],
+                                                            recv['MsgType'], recv['Content'])
+            #插入日志调试
+            LogTableOperation.InsertLog(echostr,
+                                        time.strftime('%Y-%m-%d-%H:%M:%S', time.localtime(time.time())))
+
+
             #图片模板
         if recv['MsgType'] == 'image':
-            imgTpl = """
+            textTpl = """
             <xml>
                 <ToUserName><![CDATA[%s]]></ToUserName>
                 <FromUserName><![CDATA[%s]]></FromUserName>
@@ -84,10 +78,10 @@ class weixin:
                 <Content><![CDATA[%s]]></Content>
                 <FuncFlag>0</FuncFlag>
             </xml>"""
-            echostr = imgTpl % (
+            echostr = textTpl % (
                 recv['FromUserName'], recv['ToUserName'], recv['CreateTime'], "text", recv['PicUrl'])
         if recv['MsgType'] == 'location':
-            imgTpl = """
+            textTpl = """
             <xml>
                 <ToUserName><![CDATA[%s]]></ToUserName>
                 <FromUserName><![CDATA[%s]]></FromUserName>
@@ -96,10 +90,11 @@ class weixin:
                 <Content><![CDATA[%s]]></Content>
                 <FuncFlag>0</FuncFlag>
             </xml>"""
-            echostr = imgTpl % (
-                recv['FromUserName'], recv['ToUserName'], recv['CreateTime'], "text", str(recv['Label']))
+            content = "您的地理位置为X:" + str(recv['Location_X']) + "Y:" + str(recv['Location_Y'])
+            echostr = textTpl % (
+                recv['FromUserName'], recv['ToUserName'], recv['CreateTime'], "text", content)
         if recv['MsgType'] == 'link':
-            imgTpl = """
+            textTpl = """
             <xml>
                 <ToUserName><![CDATA[%s]]></ToUserName>
                 <FromUserName><![CDATA[%s]]></FromUserName>
@@ -108,7 +103,7 @@ class weixin:
                 <Content><![CDATA[%s]]></Content>
                 <FuncFlag>0</FuncFlag>
             </xml>"""
-            echostr = imgTpl % (
+            echostr = textTpl % (
                 recv['FromUserName'], recv['ToUserName'], recv['CreateTime'], "text", str(recv['Url']))
         return echostr
 

@@ -2,12 +2,12 @@
 # coding: utf-8
 
 import hashlib
+from lxml import etree
+import time
 
 import web
-from libs import userinfo
-from config.settings import config
-import datetime
-import time
+
+from config.settings import config, textMessage
 from config import settings
 
 
@@ -15,6 +15,12 @@ class LogTableOperation:
     @staticmethod
     def InsertLog(log, datetime):
         settings.db.insert('logs', log=log, datetime=datetime)
+
+
+class TextMessageTableOperation:
+    @staticmethod
+    def InsertTextMessage(fromuser, touser, datetime, content):
+        settings.db.insert('textmessage', fromuser=fromuser, touser=touser, datetime=datetime, content=content)
 
 
 class weixin:
@@ -51,61 +57,55 @@ class weixin:
 
 
     def POST(self):
+        #有以下几种类型
+        #文本 值为：text
+        #图片 值为：image
+        #地理信息 值为：location
+        #连接信息 值为：link
         #接收微信的请求内容
         data = web.data()
-        #解析XML内容,返回列表
-        recv = userinfo.User.returnuserinfo(data)
+        #解析XML内容
+        root = etree.fromstring(data)
+        child = list(root)
+        recv = {}
+        for i in child:
+            recv[i.tag] = i.text
+
+        #print data
+        #print recv
+        '''
+        imgTpl = textMessage
+        echostr = imgTpl % (
+            'oZfN9jgzVGy0hckH4uIGCCEF2NAE','gh_41d883ddb465', '1364371886', "text", '这是定时的测试功能')
+        return echostr
+        '''
         #测试demo 所以接收到啥内容，就原样返回
-        #文本模板
+        #发送的是文本信息
         if recv['MsgType'] == 'text':
-            #格式化文本消息
-            echostr = userinfo.UserMessage.returntxtMessage(recv['FromUserName'], recv['ToUserName'],
-                                                            recv['CreateTime'],
-                                                            recv['MsgType'], recv['Content'])
-            #插入日志调试
-            LogTableOperation.InsertLog(echostr,
-                                        time.strftime('%Y-%m-%d-%H:%M:%S', time.localtime(time.time())))
-
-
-            #图片模板
+            textTpl = textMessage
+            echostr = textTpl % (
+                recv['FromUserName'], recv['ToUserName'], recv['CreateTime'], recv['MsgType'], "谢谢您的发送，我会第一时间联系您！")
+            #插入用户发送消息的内容到textmessage
+            TextMessageTableOperation.InsertTextMessage(recv['FromUserName'], recv['ToUserName'],
+                                                        time.strftime('%Y-%m-%d-%H:%M:%S', time.localtime(time.time())),
+                                                        recv['Content'])
+            #发送的是图片信息
         if recv['MsgType'] == 'image':
-            textTpl = """
-            <xml>
-                <ToUserName><![CDATA[%s]]></ToUserName>
-                <FromUserName><![CDATA[%s]]></FromUserName>
-                <CreateTime>%s</CreateTime>
-                <MsgType><![CDATA[%s]]></MsgType>
-                <Content><![CDATA[%s]]></Content>
-                <FuncFlag>0</FuncFlag>
-            </xml>"""
-            echostr = textTpl % (
+            imgTpl = textMessage
+            echostr = imgTpl % (
                 recv['FromUserName'], recv['ToUserName'], recv['CreateTime'], "text", recv['PicUrl'])
+            #发送的是地理信息
         if recv['MsgType'] == 'location':
-            textTpl = """
-            <xml>
-                <ToUserName><![CDATA[%s]]></ToUserName>
-                <FromUserName><![CDATA[%s]]></FromUserName>
-                <CreateTime>%s</CreateTime>
-                <MsgType><![CDATA[%s]]></MsgType>
-                <Content><![CDATA[%s]]></Content>
-                <FuncFlag>0</FuncFlag>
-            </xml>"""
-            content = "您的地理位置为X:" + str(recv['Location_X']) + "Y:" + str(recv['Location_Y'])
-            echostr = textTpl % (
-                recv['FromUserName'], recv['ToUserName'], recv['CreateTime'], "text", content)
+            imgTpl = textMessage
+            echostr = imgTpl % (
+                recv['FromUserName'], recv['ToUserName'], recv['CreateTime'], "text", str(recv['Location_X']))
+            #发送的是连接信息
         if recv['MsgType'] == 'link':
-            textTpl = """
-            <xml>
-                <ToUserName><![CDATA[%s]]></ToUserName>
-                <FromUserName><![CDATA[%s]]></FromUserName>
-                <CreateTime>%s</CreateTime>
-                <MsgType><![CDATA[%s]]></MsgType>
-                <Content><![CDATA[%s]]></Content>
-                <FuncFlag>0</FuncFlag>
-            </xml>"""
-            echostr = textTpl % (
+            imgTpl = textMessage
+            echostr = imgTpl % (
                 recv['FromUserName'], recv['ToUserName'], recv['CreateTime'], "text", str(recv['Url']))
         return echostr
+
 
 
 

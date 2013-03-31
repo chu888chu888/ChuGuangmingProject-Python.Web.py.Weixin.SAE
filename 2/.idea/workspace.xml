@@ -2,14 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="6e6a2eea-8fd5-4d9c-b0c5-05af299cc344" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.yaml" afterPath="$PROJECT_DIR$/config.yaml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/BeautifulSoup.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/BeautifulSoupTests.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/compat.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/decoder.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/encoder.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/ordered_dict.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/requirements.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/scanner.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_bigint_as_string.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_check_circular.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_decimal.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_decode.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_default.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_dump.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_encode_basestring_ascii.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_encode_for_html.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_errors.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_fail.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_float.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_indent.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_item_sort_key.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_namedtuple.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_pass1.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_pass2.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_pass3.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_recursion.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_scanstring.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_separators.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_speedups.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_tool.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_tuple.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tests/test_unicode.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/virtualenv.bundle/simplejson/tool.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.wsgi" afterPath="$PROJECT_DIR$/index.wsgi" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/todo.py" afterPath="$PROJECT_DIR$/controllers/todo.py" />
     </list>
     <ignored path="2.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/index.wsgi" changelist="6e6a2eea-8fd5-4d9c-b0c5-05af299cc344" time="1364276259628" ignored="false" />
+    <file path="/index.wsgi" changelist="6e6a2eea-8fd5-4d9c-b0c5-05af299cc344" time="1364714328079" ignored="false" />
     <file path="/url.py" changelist="6e6a2eea-8fd5-4d9c-b0c5-05af299cc344" time="1364276471291" ignored="false" />
-    <file path="/todo.py" changelist="6e6a2eea-8fd5-4d9c-b0c5-05af299cc344" time="1364372586315" ignored="false" />
+    <file path="/todo.py" changelist="6e6a2eea-8fd5-4d9c-b0c5-05af299cc344" time="1364715619673" ignored="false" />
     <file path="/userinfo.py" changelist="6e6a2eea-8fd5-4d9c-b0c5-05af299cc344" time="1364287847086" ignored="false" />
     <file path="/settings.py" changelist="6e6a2eea-8fd5-4d9c-b0c5-05af299cc344" time="1364367547980" ignored="false" />
     <file path="C:/PythonProject/untitled1/ddd.py" changelist="6e6a2eea-8fd5-4d9c-b0c5-05af299cc344" time="1364371475897" ignored="false" />
@@ -31,19 +69,30 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="config.yaml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config.yaml">
+      <file leaf-file-name="todo.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllers/todo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="3" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0">
+            <state line="129" column="69" selection-start="4129" selection-end="4129" vertical-scroll-proportion="0.4631579">
+              <folding>
+                <element signature="e#39#53#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.wsgi" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.wsgi">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="27" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="todo.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controllers/todo.py">
+      <file leaf-file-name="index.wsgi" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../4/index.wsgi">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="11" selection-start="1858" selection-end="1858" vertical-scroll-proportion="0.0">
+            <state line="9" column="0" selection-start="138" selection-end="247" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -62,13 +111,13 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/index.wsgi" />
         <option value="$PROJECT_DIR$/config/url.py" />
         <option value="$PROJECT_DIR$/libs/switch.py" />
         <option value="$PROJECT_DIR$/libs/userinfo.py" />
         <option value="$PROJECT_DIR$/../../Python-weixin-pyweixin-master/pyweixin.py" />
         <option value="$PROJECT_DIR$/config/settings.py" />
         <option value="$PROJECT_DIR$/config.yaml" />
+        <option value="$PROJECT_DIR$/index.wsgi" />
         <option value="$PROJECT_DIR$/controllers/todo.py" />
       </list>
     </option>
@@ -105,6 +154,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -133,50 +183,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="virtualenv.bundle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../1" />
-    <property name="options.searchVisible" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../4/index.wsgi" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -185,6 +206,11 @@
     <option name="myDjangoConsoleState">
       <PyConsoleSettings />
     </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\TenYear\Desktop\ChinaPython\2" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -325,7 +351,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284553" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20975609" sideWeight="0.67154473" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14495113" sideWeight="0.67154473" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.315625" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -396,18 +422,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/controllers/todo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="46" selection-start="1773" selection-end="1773" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="11" selection-start="308" selection-end="308" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="10" column="11" selection-start="308" selection-end="308" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/ie6/ie6-warning.js">
@@ -445,46 +462,53 @@
         <state line="0" column="0" selection-start="0" selection-end="598" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.wsgi">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="38" selection-start="161" selection-end="161" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../GitProject/Python.Web.py.Weixin.SAE/switchclass.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="0" selection-start="909" selection-end="1299" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Python-weixin-pyweixin-master/pyweixin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="49" selection-start="3534" selection-end="3534" vertical-scroll-proportion="0.03760684" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/url.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="14" selection-start="88" selection-end="88" vertical-scroll-proportion="0.22564103">
-          <folding />
-        </state>
+        <state line="6" column="14" selection-start="88" selection-end="88" vertical-scroll-proportion="0.22564103" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="11" selection-start="308" selection-end="308" vertical-scroll-proportion="0.30769232">
-          <folding />
-        </state>
+        <state line="10" column="11" selection-start="308" selection-end="308" vertical-scroll-proportion="0.30769232" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="3" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0">
+        <state line="8" column="3" selection-start="120" selection-end="120" vertical-scroll-proportion="0.3008547" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/virtualenv.bundle/BeautifulSoup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.wsgi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="27" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../4/index.wsgi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="138" selection-end="247" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/todo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="11" selection-start="1858" selection-end="1858" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="129" column="69" selection-start="4129" selection-end="4129" vertical-scroll-proportion="0.4631579">
+          <folding>
+            <element signature="e#39#53#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

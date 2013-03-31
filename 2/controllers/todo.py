@@ -2,15 +2,38 @@
 # coding: utf-8
 
 import hashlib
-from lxml import etree
 import time
-
+import Queue
 import web
-
+import random
 from config.settings import config, textMessage
 from config import settings
+from urllib import FancyURLopener
+from lxml import etree
+urllist = []
+
+class MyOpener(FancyURLopener):
+    version = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) AppleWebKit/534.55.3 (KHTML, like Gecko) Version/5.1.3 Safari/534.53.10'
 
 
+class Spider:
+    def get_html(self, url):
+        myopener = MyOpener()
+        sock = myopener.open(url)
+        htmlSource = sock.read()
+        sock.close()
+        return htmlSource
+
+    def analysis_html(self, htmlSource):
+        import lxml.html.soupparser as soupparser
+
+        dom = soupparser.fromstring(htmlSource)
+        Url = dom.xpath('//*[@id="RecentBlogs"]/ul[1]/li/div/h3/a[@href]')
+        title = dom.xpath('//*[@id="RecentBlogs"]/ul[1]/li/div/h3/a/text()')
+        writer = dom.xpath('//*[@id="RecentBlogs"]/ul[1]/li/div/div/text()')
+        for i in range(len(title)):
+            titledetail = title[i].encode('utf-8') + Url[i].get('href').encode('utf-8') + writer[i].encode('utf-8')+"\n"
+            urllist.append(titledetail)
 class LogTableOperation:
     @staticmethod
     def InsertLog(log, datetime):
@@ -63,6 +86,7 @@ class weixin:
         #地理信息 值为：location
         #连接信息 值为：link
         #接收微信的请求内容
+
         data = web.data()
         #解析XML内容
         root = etree.fromstring(data)
@@ -70,7 +94,18 @@ class weixin:
         recv = {}
         for i in child:
             recv[i.tag] = i.text
-
+        #-----------------------#
+        returnhtml = ""
+        spider = Spider()
+        url = ['http://www.oschina.net/blog/more?p=%s#' % (i) for i in range(10)]
+        urls = Queue.Queue()
+        for i in url:
+            urls.put(i)
+        for i in range(urls.qsize()):
+            url = urls.get()
+            htmlSource = spider.get_html(url)
+            spider.analysis_html(htmlSource)
+        #-----------------------#
         #print data
         #print recv
         '''
@@ -83,12 +118,16 @@ class weixin:
         #发送的是文本信息
         if recv['MsgType'] == 'text':
             textTpl = textMessage
+            #列表内容太多，微信发不了，我就随机抽一个发
+            randommessage=urllist[random.randint(0,len(urllist))]
             echostr = textTpl % (
-                recv['FromUserName'], recv['ToUserName'], recv['CreateTime'], recv['MsgType'], "谢谢您的发送，我会第一时间联系您！")
+                recv['FromUserName'], recv['ToUserName'], recv['CreateTime'], recv['MsgType'], randommessage)
+            #echostr = textTpl % (
+            #    recv['FromUserName'], recv['ToUserName'], recv['CreateTime'], recv['MsgType'], "谢谢您的发送，我会第一时间联系您！")
             #插入用户发送消息的内容到textmessage
             TextMessageTableOperation.InsertTextMessage(recv['FromUserName'], recv['ToUserName'],
                                                         time.strftime('%Y-%m-%d-%H:%M:%S', time.localtime(time.time())),
-                                                        recv['Content'])
+                                                        randommessage)
             #发送的是图片信息
         if recv['MsgType'] == 'image':
             imgTpl = textMessage
@@ -96,14 +135,16 @@ class weixin:
                 recv['FromUserName'], recv['ToUserName'], recv['CreateTime'], "text", recv['PicUrl'])
             #发送的是地理信息
         if recv['MsgType'] == 'location':
-            imgTpl = textMessage
-            echostr = imgTpl % (
+            textTpl = textMessage
+            echostr = textTpl % (
                 recv['FromUserName'], recv['ToUserName'], recv['CreateTime'], "text", str(recv['Location_X']))
             #发送的是连接信息
         if recv['MsgType'] == 'link':
             imgTpl = textMessage
             echostr = imgTpl % (
                 recv['FromUserName'], recv['ToUserName'], recv['CreateTime'], "text", str(recv['Url']))
+
+
         return echostr
 
 

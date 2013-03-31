@@ -4,4 +4,6 @@ version: 2
 libraries:
 - name: lxml
   version: "2.3.4"
+- name: beautifulsoup
+  version: "4.1.2"
 ...
